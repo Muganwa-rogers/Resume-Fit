@@ -1,4 +1,6 @@
-import { callbackify } from "util";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import { usePuterStore } from '~/lib/Puter'
 import { resumes } from "../../constants";
 import type { Route } from "./+types/home";
 import Navbar from '~/components/Navbar'
@@ -13,10 +15,19 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+
+    const { auth } = usePuterStore();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!auth.isAuthenticated) navigate('/auth?next=/');
+    },[auth.isAuthenticated]
+  )
+
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
     <Navbar/>
-    <section className="main">
-      <div className="page-heading">
+    <section className="main-section">
+      <div className="page-heading py-10">
 
         <h1>UPLOAD, ANALYSE, IMPROVE — GET HIRED</h1>
         <h2>Does your resume fit the job? Find out fast with Resume-Fit!</h2>
