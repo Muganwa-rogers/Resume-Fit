@@ -1,9 +1,9 @@
-import {usePuterStore} from "~/lib/puter";
-import {useEffect} from "react";
-import {useLocation, useNavigate} from "react-router";
+import { usePuterStore } from "~/lib/puter";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router";
 
 export const meta = () => ([
-    { title: 'Resumind | Auth' },
+    { title: 'Resume-Fit | Auth' },
     { name: 'description', content: 'Log into your account' },
 ])
 
@@ -14,7 +14,7 @@ const Auth = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(auth.isAuthenticated) navigate(next);
+        if (auth.isAuthenticated) navigate(next);
     }, [auth.isAuthenticated, next])
 
     return (

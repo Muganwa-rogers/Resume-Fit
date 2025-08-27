@@ -1,4 +1,5 @@
 import type { Route } from "./+types/home";
+import Particles from '~/Particles'
 import Navbar from "~/components/Navbar";
 import ResumeCard from "~/components/ResumeCard";
 import {usePuterStore} from "~/lib/puter";
@@ -7,7 +8,7 @@ import {useEffect, useState} from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resme-Fit" },
+    { title: "Resme-Fit | Home" },
      { name: "description", content: "Make every application count with Resume-Fit’s smart resume checker" },
   ];
 }
@@ -40,6 +41,16 @@ export default function Home() {
   }, []);
 
   return <main className="bg-[url('/images/bg-main.svg')] bg-cover">
+      {/* <Particles
+        particleColors={['#ffffff', '#ffffff']}
+        particleCount={1400}
+        particleSpread={10}
+        speed={0.2}
+        particleBaseSize={150}
+        moveParticlesOnHover={true}
+        alphaParticles={false}
+        disableRotation={false}
+      > */}
     <Navbar />
 
     <section className="main-section">
@@ -72,6 +83,7 @@ export default function Home() {
             </Link>
           </div>
       )}
-    </section>
+      </section>
+    {/* </Particles> */}
   </main>
 }
